@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 
 class ReusableCard extends StatelessWidget {
-  const ReusableCard(
-      {Key? key,
-      required this.colorBox,
-      required this.iconData,
-      required this.text,
-      required this.voidGender})
-      : super(key: key);
+  const ReusableCard({
+    Key? key,
+    required this.colorBox,
+    required this.iconData,
+    required this.text,
+    required this.voidGender,
+    this.textStyle = const TextStyle(
+      fontSize: 18,
+      color: Color(0xff8D8E98),
+    ),
+  }) : super(key: key);
 
   final Color colorBox;
-  final Icon iconData;
+  final Widget iconData;
   final String text;
+
+  final TextStyle textStyle;
   final Function() voidGender;
 
   @override
@@ -31,13 +37,7 @@ class ReusableCard extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            Text(
-              text,
-              style: const TextStyle(
-                fontSize: 18,
-                color: Color(0xff8D8E98),
-              ),
-            ),
+            Text(text, style: textStyle),
           ],
         ),
       ),
