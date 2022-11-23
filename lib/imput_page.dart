@@ -18,24 +18,31 @@ class _InputPageState extends State<InputPage> {
   static const _inactiveCadrColor = Color(0xFF111328);
   static const _bottomContainerColor = Color(0xFFEB1555);
 
-  Color maleCardColor = _inactiveCadrColor;
-  Color femaleCardColor = _inactiveCadrColor;
+  // Color maleCardColor = _activeCadrColor;
+  // Color femaleCardColor = _inactiveCadrColor;
+
+
+
+  
+
+  bool _menBool = false;
+  bool _womenBool = false;
 
   void updateColor(gender) {
     if (gender == Gender.men) {
-      if (maleCardColor == _inactiveCadrColor) {
-        maleCardColor = _activeCadrColor;
-        femaleCardColor = _inactiveCadrColor;
+      if (_menBool == false) {
+        _menBool = true;
+        _womenBool = false;
       } else {
-        maleCardColor = _inactiveCadrColor;
+        _menBool = false;
       }
     }
     if (gender == Gender.women) {
-      if (femaleCardColor == _inactiveCadrColor) {
-        femaleCardColor = _activeCadrColor;
-        maleCardColor = _inactiveCadrColor;
+      if (_womenBool == false) {
+        _womenBool = true;
+        _menBool = false;
       } else {
-        femaleCardColor = _inactiveCadrColor;
+        _womenBool = false;
       }
     }
   }
@@ -59,7 +66,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     child: ReusableCard(
-                      colorBox: maleCardColor,
+                      colorBox:
+                          _menBool ? _inactiveCadrColor : _activeCadrColor,
                       iconData: const Icon(
                         FontAwesomeIcons.mars,
                         size: 80,
@@ -76,7 +84,8 @@ class _InputPageState extends State<InputPage> {
                       });
                     },
                     child: ReusableCard(
-                      colorBox: femaleCardColor,
+                      colorBox:
+                          _womenBool ? _inactiveCadrColor : _activeCadrColor,
                       iconData: const Icon(
                         FontAwesomeIcons.venus,
                         size: 80,
