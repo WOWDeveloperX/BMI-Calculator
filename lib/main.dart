@@ -1,8 +1,7 @@
 import 'package:calculator/imput_page.dart';
 import 'package:flutter/material.dart';
 
-// ignore: prefer_const_constructors
-void main() => runApp(BMICalculator());
+void main() => runApp(const BMICalculator());
 
 class BMICalculator extends StatelessWidget {
   const BMICalculator({super.key});
