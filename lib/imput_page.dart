@@ -4,6 +4,8 @@ import 'package:calculator/reaseble.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+enum Gender { men, women }
+
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
 
@@ -19,8 +21,8 @@ class _InputPageState extends State<InputPage> {
   Color maleCardColor = _inactiveCadrColor;
   Color femaleCardColor = _inactiveCadrColor;
 
-  void updateColor(int gender) {
-    if (gender == 1) {
+  void updateColor(gender) {
+    if (gender == Gender.men) {
       if (maleCardColor == _inactiveCadrColor) {
         maleCardColor = _activeCadrColor;
         femaleCardColor = _inactiveCadrColor;
@@ -28,7 +30,7 @@ class _InputPageState extends State<InputPage> {
         maleCardColor = _inactiveCadrColor;
       }
     }
-    if (gender == 2) {
+    if (gender == Gender.women) {
       if (femaleCardColor == _inactiveCadrColor) {
         femaleCardColor = _activeCadrColor;
         maleCardColor = _inactiveCadrColor;
@@ -53,7 +55,7 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(1);
+                        updateColor(Gender.men);
                       });
                     },
                     child: ReusableCard(
@@ -70,7 +72,7 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(2);
+                        updateColor(Gender.women);
                       });
                     },
                     child: ReusableCard(
