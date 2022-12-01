@@ -4,7 +4,7 @@ class ReusableCard extends StatelessWidget {
   const ReusableCard({
     Key? key,
     required this.colorBox,
-    required this.iconData,
+    required this.cardChild,
     required this.text,
     required this.voidGender,
     this.textStyle = const TextStyle(
@@ -14,7 +14,7 @@ class ReusableCard extends StatelessWidget {
   }) : super(key: key);
 
   final Color colorBox;
-  final Widget iconData;
+  final Widget cardChild;
   final String text;
 
   final TextStyle textStyle;
@@ -32,11 +32,9 @@ class ReusableCard extends StatelessWidget {
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          
           children: [
-            iconData,
-            const SizedBox(
-              height: 15,
-            ),
+            cardChild,
             Text(text, style: textStyle),
           ],
         ),
