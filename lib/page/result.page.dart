@@ -5,7 +5,15 @@ import 'package:flutter/material.dart';
 import '../component/red_button.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  const ResultPage(
+      {super.key,
+      required this.bmiResult,
+      required this.textResult,
+      required this.intarpretation});
+
+  final String bmiResult;
+  final String textResult;
+  final String intarpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +39,13 @@ class ResultPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text('Нормально', style: kResultTextStyle),
-                  const Text(
-                    '18.3',
+                  Text(textResult.toUpperCase(), style: kResultTextStyle),
+                  Text(
+                    bmiResult,
                     style: kBMITextStule,
                   ),
-                  const Text(
-                    'Твой результат довольно низкий, тебе следует больше кушать!',
+                  Text(
+                    intarpretation,
                     style: kBMITextStuleMini,
                     textAlign: TextAlign.center,
                   ),

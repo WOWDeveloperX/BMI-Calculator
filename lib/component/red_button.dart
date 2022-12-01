@@ -19,9 +19,9 @@ class ButtonRed extends StatelessWidget {
         margin: const EdgeInsets.only(top: 10),
         width: double.infinity,
         height: 70,
-        child:  Center(
+        child: Center(
             child: Text(
-         buttonTitle,
+          buttonTitle,
           style: kLargeButtonTextStyke,
         )),
       ),

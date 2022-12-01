@@ -1,18 +1,16 @@
-import 'dart:ffi';
-
 import 'dart:math';
 
 class CalculationBrain {
-  CalculationBrain({this.height, this.weight});
+  CalculationBrain({required this.height, required this.weight});
 
-  final int? height;
+  final int height;
 
-  final int? weight;
+  final int weight;
 
   late double _bmi;
 
   String calculationBMI() {
-    _bmi = weight! / pow(height! / 100, 2);
+    _bmi = weight / pow(height / 100, 2);
 
     return _bmi.toStringAsFixed(1);
   }

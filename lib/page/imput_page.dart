@@ -5,6 +5,7 @@ import 'package:calculator/constants.dart';
 import 'package:calculator/component/reaseble.dart';
 import 'package:calculator/component/red_button.dart';
 import 'package:calculator/component/round_icon_button.dart';
+import 'package:calculator/page/result.page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -20,11 +21,11 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
 
-  int height = 120;
+  int height = 170;
 
-  int weight = 30;
+  int weight = 70;
 
-  int age = 14;
+  int age = 18;
 
   @override
   Widget build(BuildContext context) {
@@ -228,10 +229,19 @@ class _InputPageState extends State<InputPage> {
           ),
           ButtonRed(
             onTap: () {
-              Navigator.pushNamed(context, '/2');
-
               CalculationBrain calc =
                   CalculationBrain(height: height, weight: weight);
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(
+                    bmiResult: calc.calculationBMI(),
+                    intarpretation: calc.getInterpretation(),
+                    textResult: calc.getResult(),
+                  ),
+                ),
+              );
             },
             buttonTitle: 'Вычислить',
           ),
